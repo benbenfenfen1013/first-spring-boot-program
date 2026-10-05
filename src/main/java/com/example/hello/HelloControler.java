@@ -25,10 +25,10 @@ public class HelloControler {
         return t + "点火";
     }
 
-    @GetMapping("/condition")
-    public String condition(){
+    @GetMapping("/condition/rate={rate}")
+    public String condition(@PathVariable int rate){
         int p = new Random().nextInt(100);
-        if (p >30){
+        if (p > rate){
             return "发射成功，载荷已进入预定轨道。";
         }else{
             return "发射失败";
